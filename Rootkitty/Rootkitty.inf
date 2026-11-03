@@ -1,0 +1,62 @@
+;
+; Rootkitty.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = Rootkitty.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Rootkitty.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%Rootkitty.DeviceDesc% = Rootkitty_Device, Root\Rootkitty ; TODO: edit hw-id
+
+[Rootkitty_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+Rootkitty.sys
+
+;-------------- Service installation
+[Rootkitty_Device.NT.Services]
+AddService = Rootkitty,%SPSVCINST_ASSOCSERVICE%, Rootkitty_Service_Inst
+
+; -------------- Rootkitty driver install sections
+[Rootkitty_Service_Inst]
+DisplayName    = %Rootkitty.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\Rootkitty.sys
+
+[Rootkitty_Device.NT.Wdf]
+KmdfService = Rootkitty, Rootkitty_wdfsect
+
+[Rootkitty_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "Rootkitty Installation Disk"
+Rootkitty.DeviceDesc = "Rootkitty Device"
+Rootkitty.SVCDESC = "Rootkitty Service"
