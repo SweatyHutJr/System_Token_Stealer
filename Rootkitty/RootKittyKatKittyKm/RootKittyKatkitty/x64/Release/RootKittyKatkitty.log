@@ -1,0 +1,22 @@
+﻿  Building 'RootKittyKatkitty' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\RootKittyKatkitty.inf
+  Stamping [Version] section with DriverVer=11/03/2026,20.55.23.973
+  RootKittyKatkitty.vcxproj -> C:\Users\malma\source\repos\RootKittyKatkitty\x64\Release\RootKittyKatkitty.sys
+  Done Adding Additional Store
+  Successfully signed: C:\Users\malma\source\repos\RootKittyKatkitty\x64\Release\RootKittyKatkitty.sys
+  
+  Driver is 'Universal'.
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\malma\source\repos\RootKittyKatkitty\x64\Release\RootKittyKatkitty\rootkittykatkitty.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\malma\source\repos\RootKittyKatkitty\x64\Release\RootKittyKatkitty\rootkittykatkitty.cat
+  

@@ -1,0 +1,62 @@
+;
+; RootKittyKatkitty.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = RootKittyKatkitty.cat
+DriverVer = 11/03/2026,20.55.23.973
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+RootKittyKatkitty.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NTamd64.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NTamd64.10.0...16299]
+%RootKittyKatkitty.DeviceDesc% = RootKittyKatkitty_Device, Root\RootKittyKatkitty ; TODO: edit hw-id
+
+[RootKittyKatkitty_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+RootKittyKatkitty.sys
+
+;-------------- Service installation
+[RootKittyKatkitty_Device.NT.Services]
+AddService = RootKittyKatkitty,%SPSVCINST_ASSOCSERVICE%, RootKittyKatkitty_Service_Inst
+
+; -------------- RootKittyKatkitty driver install sections
+[RootKittyKatkitty_Service_Inst]
+DisplayName    = %RootKittyKatkitty.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\RootKittyKatkitty.sys
+
+[RootKittyKatkitty_Device.NT.Wdf]
+KmdfService = RootKittyKatkitty, RootKittyKatkitty_wdfsect
+
+[RootKittyKatkitty_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "RootKittyKatkitty Installation Disk"
+RootKittyKatkitty.DeviceDesc = "RootKittyKatkitty Device"
+RootKittyKatkitty.SVCDESC = "RootKittyKatkitty Service"

@@ -1,0 +1,8 @@
+﻿  Building 'RootKittyKatkitty' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Debug\RootKittyKatkitty.inf
+  Stamping [Version] section with DriverVer=11/03/2026,19.29.56.941
+  main.cpp
+WdfDriverEntry.lib(stub.obj) : error LNK2019: unresolved external symbol DriverEntry referenced in function FxDriverEntryWorker
+    Hint on symbols that are defined and could potentially match:
+      "long __cdecl DriverEntry(struct _DRIVER_OBJECT *,struct _UNICODE_STRING *)" (?DriverEntry@@YAJPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z)
+C:\Users\malma\source\repos\RootKittyKatkitty\x64\Debug\RootKittyKatkitty.sys : fatal error LNK1120: 1 unresolved externals
