@@ -1,0 +1,3 @@
+﻿  RootKittyKatKittyUm.cpp
+C:\Users\malma\source\repos\RootKittyKatKittyUm\RootKittyKatKittyUm\RootKittyKatKittyUm.cpp(61,16): warning C5334: named universal characters require at least '/std:c++23preview'
+  RootKittyKatKittyUm.vcxproj -> C:\Users\malma\source\repos\RootKittyKatKittyUm\x64\Debug\RootKittyKatKittyUm.exe

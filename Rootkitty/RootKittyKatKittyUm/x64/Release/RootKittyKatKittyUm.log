@@ -1,0 +1,8 @@
+﻿  RootKittyKatKittyUm.cpp
+C:\Users\malma\source\repos\RootKittyKatKittyUm\RootKittyKatKittyUm\RootKittyKatKittyUm.cpp(61,16): warning C5334: named universal characters require at least '/std:c++23preview'
+  Generating code
+  1 of 7 functions (14.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  RootKittyKatKittyUm.vcxproj -> C:\Users\malma\source\repos\RootKittyKatKittyUm\x64\Release\RootKittyKatKittyUm.exe
